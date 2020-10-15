@@ -74,6 +74,28 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-color-custom: #ed6d56;
+  --ion-color-custom-rgb: 237,109,86;
+  --ion-color-custom-contrast: #000000;
+  --ion-color-custom-contrast-rgb: 0,0,0;
+  --ion-color-custom-shade: #d1604c;
+  --ion-color-custom-tint: #ef7c67;
+}
+
+
+.ion-color-custom {
+  --ion-color-base: var(--ion-color-custom);
+  --ion-color-base-rgb: var(--ion-color-custom-rgb);
+  --ion-color-contrast: var(--ion-color-custom-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-custom-contrast-rgb);
+  --ion-color-shade: var(--ion-color-custom-shade);
+  --ion-color-tint: var(--ion-color-custom-tint);
+}
+
+.myButton{
+  color: --ion-color-custom;
+  --color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -146,6 +168,8 @@
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
   }
+
+
 
   /*
    * iOS Dark Theme
