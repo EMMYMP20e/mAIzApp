@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="custom"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Nuevo Cultivo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formAgregarCultivo" (ngSubmit)="guardarCultivo()">
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Nombre de AGL
+        </ion-label>
+        <ion-input formControlName="nombre" [(ngModel)]="nombre" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Ubicación
+        </ion-label>
+        <ion-input formControlName="ubicacion" [(ngModel)]="ubicacion" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Fecha de Inico
+        </ion-label>
+        <ion-datetime value="fecha" [(ngModel)]="fecha_inicio" formControlName="fecha_inicio">
+        </ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          GDD Acumulados
+        </ion-label>
+        <ion-input formControlName="gdd_acumulados" [(ngModel)]="gdd_acumulados" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Etapa Vegetativa (V)
+        </ion-label>
+        <ion-input formControlName="etapa_vegetativa" [(ngModel)]="etapa_vegetativa" type="number"></ion-input>
+      </ion-item>
+
+    </ion-card>
+  </form>
+
+  <div class="ion-padding">
+    <ion-button color="primary" icon-start expand="block" type="submit" [disabled]="!formAgregarCultivo.valid"
+      (click)="guardarCultivo()">
+      <ion-icon name="cloud-upload-outline"></ion-icon>
+      Guardar Cultivo
+    </ion-button>
+  </div>
+</ion-content>

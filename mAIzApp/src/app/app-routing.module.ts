@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'lista-cultivos',
     loadChildren: () => import('./lista-cultivos/lista-cultivos.module').then( m => m.ListaCultivosPageModule)
+  },
+  {
+    path: 'form-cultivo',
+    loadChildren: () => import('./form-cultivo/form-cultivo.module').then( m => m.FormCultivoPageModule)
   }
 ];
 

@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Nuevo Cultivo',
-      url: '/folder/Outbox',
+      url: '/form-cultivo',
       icon: 'duplicate'
     },
     {
