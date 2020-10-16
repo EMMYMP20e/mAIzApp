@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Mis Cultivos',
-      url: '/folder/Inbox',
+      url: '/lista-cultivos',
       icon: 'copy'
     },
     {
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const path = window.location.pathname.split('folder/inbox')[1];
+    const path = window.location.pathname.split('lista-cultivos')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }

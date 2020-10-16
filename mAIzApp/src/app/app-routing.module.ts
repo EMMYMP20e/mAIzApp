@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'lista-cultivos',
+    loadChildren: () => import('./lista-cultivos/lista-cultivos.module').then( m => m.ListaCultivosPageModule)
   }
 ];
 
