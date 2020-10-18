@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'form-cultivo',
     loadChildren: () => import('./form-cultivo/form-cultivo.module').then( m => m.FormCultivoPageModule)
+  },
+  {
+    path: 'camara-ia',
+    loadChildren: () => import('./camara-ia/camara-ia.module').then( m => m.CamaraIaPageModule)
   }
 ];
 

@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Detector (IA)',
-      url: '/folder/Favorites',
+      url: '/camara-ia',
       icon: 'aperture'
     },
     {

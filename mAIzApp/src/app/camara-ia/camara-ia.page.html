@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="custom"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Detector (IA)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-label color="medium">
+    Inserte instrucciones vergas con dibujito Xd
+  </ion-label>
+
+  <div class="ion-padding">
+    <ion-button color="primary" icon-start expand="block" type="submit" (click)="tomarFoto()">
+      <ion-icon name="aperture"></ion-icon>
+      mAIz
+    </ion-button>
+  </div>
+  <ion-thumbnail>
+    <ion-img [src]="foto"></ion-img>
+  </ion-thumbnail>
+</ion-content>
