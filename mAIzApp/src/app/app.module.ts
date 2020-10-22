@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Camera } from '@ionic-native/camera/ngx';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { Camera } from '@ionic-native/camera/ngx';
     IonicModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule],
   providers: [
     StatusBar,
