@@ -15,7 +15,7 @@ export class CamaraIaPage implements OnInit {
 
   public servidor: WebServiceService;
 
-  constructor( private camera: Camera, servidor: WebServiceService ) {
+  constructor(private camera: Camera, servidor: WebServiceService) {
     this.options = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -23,11 +23,11 @@ export class CamaraIaPage implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     }
     this.servidor = servidor;
-   }
+  }
 
   ngOnInit() {
   }
-  tomarFoto(){
+  tomarFoto() {
     this.camera.getPicture(this.options).then((imageData) => {
       this.foto = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
@@ -35,31 +35,27 @@ export class CamaraIaPage implements OnInit {
     });
   }
 
-  getRequest(){
-    this.servidor.dameDatos("/alumnos").subscribe(
-			(data) => {
-				if (data[0].bn == 1) {
-					console.log(data)
-				}
-				else {
-					console.log("Error en get")
-				}
-			});
+  getRequest() {
+    this.servidor.dameDatos("/alumnos").subscribe((data) => {
+      alert(data);
+      console.log(data)
+    }, (err) => {
+      alert("Fallo" + err);
+      console.log(err)
+    });
   }
-  postRequest(){
-    var datos={
-      "IDAlumno" : "69",
-      "NombreAlumno":"Scarlett Johanson",
+  postRequest() {
+    var datos = {
+      "IDAlumno": "69",
+      "NombreAlumno": "Scarlett Johanson",
     }
-    this.servidor.enviarDatos(datos, "/alumnos").subscribe(
-			(data) => {
-				if (data[0].bn == 1) {
-					console.log(data)
-				}
-				else {
-					console.log("Error en post")
-				}
-			});
+    this.servidor.enviarDatos(datos, "/alumnos").subscribe((data) => {
+      alert(data);
+      console.log(data)
+    }, (err) => {
+      alert("Fallo" + err);
+      console.log(err)
+    });
   }
 
 

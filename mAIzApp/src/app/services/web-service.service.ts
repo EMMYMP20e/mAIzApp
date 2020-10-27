@@ -12,10 +12,10 @@ export class WebServiceService {
   enviarDatos(datos, directorioUrl) {
     let options = {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json'
       }
     }
-    return this.http.post(this.urlBase + directorioUrl, JSON.stringify(Object.assign(datos)), options);
+    return this.http.post(this.urlBase + directorioUrl, datos, options);
   }
 
   dameDatos(directorioUrl) {
