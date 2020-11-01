@@ -2,6 +2,8 @@ import { WebServiceService } from './../services/web-service.service';
 import { ApiClimaService } from './../services/api-clima.service';
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { LoadingController } from '@ionic/angular';
+import { finalize } from 'rxjs/operators';
 
 
 @Component({
@@ -16,7 +18,7 @@ export class CamaraIaPage implements OnInit {
 
   public servidor: WebServiceService;
 
-  constructor(private camera: Camera, servidor: WebServiceService, private api :ApiClimaService) {
+  constructor(private camera: Camera, servidor: WebServiceService, private api: ApiClimaService, private loadingCtrl: LoadingController) {
     this.options = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -24,6 +26,15 @@ export class CamaraIaPage implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     }
     this.servidor = servidor;
+
+    /*const loading = await this.loader.create({
+      animated: true,
+      spinner: 'dots',
+      message: 'Verificando credenciales de acceso.',
+      translucent: true,
+      cssClass: 'custom-class custom-loading',
+      backdropDismiss: false
+    });*/
   }
 
   ngOnInit() {
@@ -36,8 +47,20 @@ export class CamaraIaPage implements OnInit {
     });
   }
 
-  getRequest() {
-    this.servidor.dameDatos("/CORS").subscribe((data) => {
+  async getRequest() {
+    const loading = await this.loadingCtrl.create({
+      animated: true,
+      spinner: 'dots',
+      message: 'Accesando Servidor',
+      translucent: true,
+      cssClass: 'custom-class custom-loading',
+      backdropDismiss: false
+    });
+    await loading.present()
+    
+    this.servidor.dameDatos("/CORS").pipe(
+      finalize(() => loading.dismiss())
+    ).subscribe((data) => {
       alert(data);
       console.log(data)
     }, (err) => {
@@ -45,12 +68,24 @@ export class CamaraIaPage implements OnInit {
       console.log(err)
     });
   }
-  postRequest() {
+  async postRequest() {
+    const loading = await this.loadingCtrl.create({
+      animated: true,
+      spinner: 'dots',
+      message: 'Accesando Servidor',
+      translucent: true,
+      cssClass: 'custom-class custom-loading',
+      backdropDismiss: false
+    });
+    await loading.present()
+
     var datos = {
       "IDAlumno": 69,
       "NombreAlumno": "Mia khalifa",
     }
-    this.servidor.enviarDatos(datos, "/CORS").subscribe((data) => {
+    this.servidor.enviarDatos(datos, "/CORS").pipe(
+      finalize(() => loading.dismiss())
+    ).subscribe((data) => {
       alert(data);
       console.log(data)
     }, (err) => {
@@ -59,19 +94,32 @@ export class CamaraIaPage implements OnInit {
     });
   }
 
-  getApi(){
+  async getApi() {
+    const loading = await this.loadingCtrl.create({
+      animated: true,
+      spinner: 'dots',
+      message: 'Accesando API de OpenWeather',
+      translucent: true,
+      cssClass: 'custom-class custom-loading',
+      backdropDismiss: false
+    });
+    await loading.present()
+
     var datos = {
       lat: 19.994076,
-      lon:-102.294526,
-      exclude:'minutely,hourly,alerts'
+      lon: -102.294526,
+      exclude: 'minutely,hourly,alerts'
     }
-    this.api.dameDatos(datos).subscribe((data) => {
-      alert(data);
-      console.log(data)
-    }, (err) => {
-      alert("Fallo" + err);
-      console.log(err)
-    });
+    this.api.dameDatos(datos).pipe(
+      finalize(() => loading.dismiss())
+    )
+      .subscribe((data) => {
+        alert(data);
+        console.log(data)
+      }, (err) => {
+        alert("Fallo" + err);
+        console.log(err)
+      });
   }
 
 
