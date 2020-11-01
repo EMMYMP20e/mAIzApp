@@ -18,6 +18,24 @@
       mAIz
     </ion-button>
   </div>
+  <div class="ion-padding">
+    <ion-button color="primary" icon-start expand="block" type="submit" (click)="getRequest()">
+      <ion-icon name="aperture"></ion-icon>
+      Get
+    </ion-button>
+  </div>
+  <div class="ion-padding">
+    <ion-button color="primary" icon-start expand="block" type="submit" (click)="postRequest()">
+      <ion-icon name="aperture"></ion-icon>
+      Post
+    </ion-button>
+  </div>
+  <div class="ion-padding">
+    <ion-button color="primary" icon-start expand="block" type="submit" (click)="getApi()">
+      <ion-icon name="aperture"></ion-icon>
+      Get API
+    </ion-button>
+  </div>
   <ion-thumbnail>
     <ion-img [src]="foto"></ion-img>
   </ion-thumbnail>

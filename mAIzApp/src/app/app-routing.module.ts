@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'camara-ia',
     loadChildren: () => import('./camara-ia/camara-ia.module').then( m => m.CamaraIaPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   }
 ];
 
