@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Perfil',
-      url: '/folder/Archived',
+      url: '/perfil',
       icon: 'person-circle'
     }
   ];
