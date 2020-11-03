@@ -48,7 +48,7 @@
       </ion-row>
     </ion-footer>
 
-    <ion-select cancel-text="Cancelar" interface="action-sheet">
+    <ion-select (ionChange)="accion( $event, cultivo.id)" cancel-text="Cancelar" interface="action-sheet">
       <ion-select-option>Nuevo Registro</ion-select-option>
       <ion-select-option>Gráficas</ion-select-option>
       <ion-select-option>Historial</ion-select-option>

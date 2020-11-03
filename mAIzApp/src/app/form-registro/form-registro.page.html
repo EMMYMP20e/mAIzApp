@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro:</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formRegistro" (ngSubmit)="guardarRegistro()">
+
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Fecha
+        </ion-label>
+        <ion-datetime [(ngModel)]="dia" formControlName="dia">
+        </ion-datetime>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Ubicación Latitud
+        </ion-label>
+        <ion-input formControlName="lat_ubicacion" [(ngModel)]="lat_ubicacion" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Ubicación Longitud
+        </ion-label>
+        <ion-input formControlName="lon_ubicacion" [(ngModel)]="lon_ubicacion" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Temperatura Máxima
+        </ion-label>
+        <ion-input formControlName="tempMax" [(ngModel)]="tempMax" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Temperatura Mínima
+        </ion-label>
+        <ion-input formControlName="tempMin" [(ngModel)]="tempMin" type="number"></ion-input>
+      </ion-item>
+
+      <div class="ion-padding">
+        <ion-button color="custom" icon-start expand="block" type="submit" (click)="guardarRegistro()" [disabled]="!lat_ubicacion || !lon_ubicacion">
+          <ion-icon name="cloud-download-outline"></ion-icon>
+          Obtener Datos
+        </ion-button>
+      </div>
+    </ion-card>
+
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Etapa Vegetativa
+        </ion-label>
+        <ion-input formControlName="etapa_vegetativa" [(ngModel)]="etapa_vegetativa" type="number"></ion-input>
+      </ion-item>
+
+      <div class="ion-padding">
+        <ion-button color="custom" icon-start expand="block" type="submit" (click)="guardarRegistro()">
+          <ion-icon name="aperture"></ion-icon>
+          Camara-IA
+        </ion-button>
+      </div>
+    </ion-card>
+
+  </form>
+
+  <div class="ion-padding">
+    <ion-button color="primary" icon-start expand="block" type="submit" [disabled]="!formRegistro.valid"
+      (click)="guardarRegistro()">
+      <ion-icon name="cloud-upload-outline"></ion-icon>
+      Guardar Registro
+    </ion-button>
+  </div>
+</ion-content>

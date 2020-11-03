@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'form-registro',
+    loadChildren: () => import('./form-registro/form-registro.module').then( m => m.FormRegistroPageModule)
   }
 ];
 
