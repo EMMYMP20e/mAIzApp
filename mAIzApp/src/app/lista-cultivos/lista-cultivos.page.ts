@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-lista-cultivos',
@@ -10,22 +11,39 @@ export class ListaCultivosPage implements OnInit {
   arrayCultivos=[]
 
 
-  constructor() {
+  constructor(private router: Router) {
     this.arrayCultivos.push({
-      'nombre': 'ranch',
+      'id':'1',
+      'nombre': 'il ranch',
       'ubicacion':'rnch cano'
     });
     this.arrayCultivos.push({
-      'nombre': 'otro',
+      'id':'2',
+      'nombre': 'du ranch',
       'ubicacion':'rnch otro'
     });
     this.arrayCultivos.push({
-      'nombre': 'puto el que lo lea',
+      'id':'3',
+      'nombre': 'le ranch',
       'ubicacion':'rnch otro'
     });
+    console.log("cragado")
    }
 
   ngOnInit() {
+  }
+
+  accion(event, id_cultivo){
+    if(event.target.value.includes("Nuevo Registro")){
+      console.log(event)
+      let datos: NavigationExtras = {
+        state: {
+          id: id_cultivo
+        }
+      };
+      this.router.navigate(['/form-registro'], datos);
+    }
+    event.target.value = "";
   }
 
 }

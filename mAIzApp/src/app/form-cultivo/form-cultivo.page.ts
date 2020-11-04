@@ -30,6 +30,8 @@ export class FormCultivoPage implements OnInit {
     var localISOTime = (new Date(Date.now() - desface)).toISOString().slice(0, -1);
     //----------------------------
     this.fecha = localISOTime;
+    this.fecha_inicio=this.fecha;
+    
   }
 
   ngOnInit() {
