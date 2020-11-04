@@ -44,11 +44,11 @@ export class FormRegistroPage implements OnInit {
     //----------------------------
     this.fecha = localISOTime;
     this.dia = this.fecha;
-  
+
     if (this.router.getCurrentNavigation().extras.state.id != null) {
       console.log(this.router.getCurrentNavigation().extras.state.id)
     }
-    else{
+    else {
       console.log("id null")
     }
 
@@ -64,13 +64,17 @@ export class FormRegistroPage implements OnInit {
   }
 
   getGeolocation() {
-		var ref = this;
-		this.geolocation.getCurrentPosition().then((resp) => {
-			this.lat_ubicacion = resp.coords.latitude;
-      this.lon_ubicacion = resp.coords.longitude;
-    }).catch((error) => {
-			console.log('Error obteniendo locación', error);
-		});
+    var options = {
+      timeout: 20000,
+      enableHighAccuracy: true
+    }
+    this.geolocation.getCurrentPosition(options).then((resp) => {
+        this.lat_ubicacion = resp.coords.latitude;
+        this.lon_ubicacion = resp.coords.longitude;
+      }).catch((error) => {
+        console.log('Error obteniendo locación', error);
+        alert('Error obteniendo locación')
+      });
   }
 
   async getApi() {
@@ -93,8 +97,8 @@ export class FormRegistroPage implements OnInit {
       finalize(() => loading.dismiss())
     )
       .subscribe((data) => {
-        this.tempMax=((data['daily'][0].temp.max-273.15)*1.8)+32;
-        this.tempMin=((data['daily'][0].temp.min-273.15)*1.8)+32;
+        this.tempMax = ((data['daily'][0].temp.max - 273.15) * 1.8) + 32;
+        this.tempMin = ((data['daily'][0].temp.min - 273.15) * 1.8) + 32;
       }, (err) => {
         alert("Error al obtener datos de API OpenWeather");
         console.log(err)

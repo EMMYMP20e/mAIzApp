@@ -14,19 +14,20 @@ export class ListaCultivosPage implements OnInit {
   constructor(private router: Router) {
     this.arrayCultivos.push({
       'id':'1',
-      'nombre': 'ranch',
+      'nombre': 'il ranch',
       'ubicacion':'rnch cano'
     });
     this.arrayCultivos.push({
       'id':'2',
-      'nombre': 'otro',
+      'nombre': 'du ranch',
       'ubicacion':'rnch otro'
     });
     this.arrayCultivos.push({
       'id':'3',
-      'nombre': 'puto el que lo lea',
+      'nombre': 'le ranch',
       'ubicacion':'rnch otro'
     });
+    console.log("cragado")
    }
 
   ngOnInit() {
@@ -34,13 +35,15 @@ export class ListaCultivosPage implements OnInit {
 
   accion(event, id_cultivo){
     if(event.target.value.includes("Nuevo Registro")){
+      console.log(event)
       let datos: NavigationExtras = {
         state: {
           id: id_cultivo
         }
       };
-      this.router.navigate(['form-registro'], datos);
+      this.router.navigate(['/form-registro'], datos);
     }
+    event.target.value = "";
   }
 
 }

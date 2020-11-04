@@ -31,6 +31,7 @@ export class FormCultivoPage implements OnInit {
     //----------------------------
     this.fecha = localISOTime;
     this.fecha_inicio=this.fecha;
+    
   }
 
   ngOnInit() {
