@@ -13,6 +13,8 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { HttpClientModule } from '@angular/common/http';
 
+import 'chartjs-plugin-zoom';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

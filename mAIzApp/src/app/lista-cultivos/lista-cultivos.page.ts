@@ -27,7 +27,6 @@ export class ListaCultivosPage implements OnInit {
       'nombre': 'le ranch',
       'ubicacion':'rnch otro'
     });
-    console.log("cragado")
    }
 
   ngOnInit() {
@@ -42,6 +41,9 @@ export class ListaCultivosPage implements OnInit {
         }
       };
       this.router.navigate(['/form-registro'], datos);
+    }
+    else if(event.target.value.includes("Gráficas")){
+      this.router.navigate(['/graficas']);
     }
     event.target.value = "";
   }

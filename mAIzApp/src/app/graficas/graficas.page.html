@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>graficas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <canvas baseChart 
+  [datasets]="chartData" 
+  [labels]="chartLabels" 
+  [options]="chartOptions" 
+  [colors]="chartColors"
+  [legend]="showLegend" 
+  [chartType]="chartType">
+  </canvas>
+
+</ion-content>

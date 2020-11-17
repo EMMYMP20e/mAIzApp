@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'form-registro',
     loadChildren: () => import('./form-registro/form-registro.module').then( m => m.FormRegistroPageModule)
+  },
+  {
+    path: 'graficas',
+    loadChildren: () => import('./graficas/graficas.module').then( m => m.GraficasPageModule)
   }
 ];
 
