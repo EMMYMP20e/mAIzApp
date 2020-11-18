@@ -19,7 +19,7 @@ export class CamaraIaPage implements OnInit {
 
   public servidor: WebServiceService;
 
-  constructor(private camera: Camera, servidor: WebServiceService, private api: ApiClimaService, private loadingCtrl: LoadingController) {
+  constructor(private camera: Camera,  servidor: WebServiceService, private api: ApiClimaService, private loadingCtrl: LoadingController) {
     this.options = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,

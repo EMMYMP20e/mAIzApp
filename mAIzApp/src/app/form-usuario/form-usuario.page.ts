@@ -22,7 +22,7 @@ export class FormUsuarioPage implements OnInit {
   public direccion: any;
 
 
-  constructor(private formBuilder: FormBuilder, private servidor: WebServiceService, private loadingCtrl: LoadingController, private menu: MenuController, private router: Router) {
+  constructor(private formBuilder: FormBuilder, public servidor: WebServiceService, private loadingCtrl: LoadingController, private menu: MenuController, private router: Router) {
     this.formAgregarUsuario = this.formBuilder.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required],
@@ -49,16 +49,17 @@ export class FormUsuarioPage implements OnInit {
 
     var datos = {
       "usuario": this.usuario,
-      "password": this.password,
-      "nombre": this.nombre,
-      "telefono": this.telefono,
-      "direccion": this.direccion
+      "user_password": this.password,
+      "user_telefono": this.telefono,
+      "user_direccion": this.direccion,
+      "user_nombre": this.nombre
     }
     this.servidor.enviarDatos(datos, "/").pipe(
       finalize(() => loading.dismiss())
     ).subscribe((data) => {
       alert("Usuario Registrado");
       console.log(data)
+      this.servidor.setID(data['id'])
       this.menu.enable(true, 'menu')
       this.router.navigate(['/lista-cultivos']);
     }, (err) => {
