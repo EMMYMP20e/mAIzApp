@@ -21,6 +21,8 @@ export class FormUsuarioPage implements OnInit {
   public telefono: any;
   public direccion: any;
 
+  public telefonoStr:string;
+
 
   constructor(private formBuilder: FormBuilder, public servidor: WebServiceService, private loadingCtrl: LoadingController, private menu: MenuController, private router: Router) {
     this.formAgregarUsuario = this.formBuilder.group({
@@ -46,24 +48,24 @@ export class FormUsuarioPage implements OnInit {
       backdropDismiss: false
     });
     await loading.present()
-
+    this.telefonoStr=String(this.telefono)
     var datos = {
-      "usuario": this.usuario,
-      "user_password": this.password,
-      "user_telefono": this.telefono,
-      "user_direccion": this.direccion,
-      "user_nombre": this.nombre
+      "UsuarioNombre": this.nombre,
+      "UsuarioUsername": this.usuario,
+      "UsuarioPassword": this.password,
+      "UsuarioTelefono": this.telefonoStr,
+      "UsuarioDireccion": this.direccion
     }
-    this.servidor.enviarDatos(datos, "/").pipe(
+    this.servidor.enviarDatos(datos, "/usuarios").pipe(
       finalize(() => loading.dismiss())
     ).subscribe((data) => {
       alert("Usuario Registrado");
       console.log(data)
-      this.servidor.setID(data['id'])
+      this.servidor.setID(data['ID'])
       this.menu.enable(true, 'menu')
       this.router.navigate(['/lista-cultivos']);
     }, (err) => {
-      alert("Fallo" + err);
+      alert("Error al conectarse al servidor");
       console.log(err)
     });
   }

@@ -50,12 +50,12 @@ export class FormCultivoPage implements OnInit {
     await loading.present()
 
     var datos = {
-      "nombre": this.nombre,
-      "fecha_creacion": this.fecha_inicio,
-      "id_usuario": this.servidor.getID() ,
-      "ubicacion": this.ubicacion,
+      "UsuarioID": this.servidor.getID() ,
+      "NombrePlantio": this.nombre,
+      "UbicacionPlantio": this.ubicacion,
+      "FechaCreacion": String(this.fecha_inicio)
     }
-    this.servidor.enviarDatos(datos, "/").pipe(
+    this.servidor.enviarDatos(datos, "/plantios").pipe(
       finalize(() => loading.dismiss())
     ).subscribe((data) => {
       alert("Cultivo Registrado");

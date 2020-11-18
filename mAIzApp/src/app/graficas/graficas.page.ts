@@ -10,7 +10,7 @@ import { Color, Label } from 'ng2-charts';
 export class GraficasPage implements OnInit {
 
   // Data
-  chartData: ChartDataSets[] = [{ data: [], label: 'Stock price' }];
+  chartData: ChartDataSets[] = [{ data: [], label: ' ' }];
   chartLabels: Label[];
 
   // Options
@@ -18,7 +18,22 @@ export class GraficasPage implements OnInit {
     responsive: true,
     title: {
       display: true,
-      text: 'Veces que me la pelan'
+      text: 'Grados Dia de Crecimiento'
+    },
+    pan: {
+      enabled: true,
+      mode: 'xy'
+    },
+    zoom: {
+      enabled: true,
+      mode: 'xy'
+    }
+  };
+  chartOptionsV = {
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Etapas Vegetativas'
     },
     pan: {
       enabled: true,
@@ -33,6 +48,12 @@ export class GraficasPage implements OnInit {
     {
       borderColor: '#d1604c',
       backgroundColor:'rgba(239,124,103,0.7)'
+    }
+  ];
+  chartColorG: Color[] = [
+    {
+      borderColor: '#28ba62',
+      backgroundColor:'rgba(45,211,111,0.7)'
     }
   ];
   chartType = 'line';
@@ -51,28 +72,28 @@ export class GraficasPage implements OnInit {
   getData() {
 
     this.array.push({
-      date: 'il lunes',
+      date: '01/01/2020',
       data: 3
     });
     this.array.push({
-      date: 'il martes',
+      date: '02/01/2020',
       data: 4
     });
     this.array.push({
-      date: 'il miercoles',
+      date: '03/01/2020',
       data: 5
     });
     this.array.push({
-      date: 'il jueves',
+      date: '04/01/2020',
       data: 5
     });
     this.array.push({
-      date: 'il viernes',
-      data: 4
+      date: '05/01/2020',
+      data: 6
     });
     this.array.push({
-      date: 'il miercoles',
-      data: 3
+      date: '06/01/2020',
+      data: 6
     });
     this.chartLabels = [];
     this.chartData[0].data = [];

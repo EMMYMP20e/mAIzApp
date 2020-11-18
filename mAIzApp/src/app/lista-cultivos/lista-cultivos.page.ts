@@ -14,22 +14,23 @@ export class ListaCultivosPage implements OnInit {
   constructor(private router: Router) {
     this.arrayCultivos.push({
       'id':'1',
-      'nombre': 'il ranch',
-      'ubicacion':'rnch cano'
+      'nombre': 'Cultivo 1',
+      'ubicacion':'Carretera La barca'
     });
     this.arrayCultivos.push({
       'id':'2',
-      'nombre': 'du ranch',
-      'ubicacion':'rnch otro'
+      'nombre': 'Cultivo 2',
+      'ubicacion':'Carretera La barca'
     });
     this.arrayCultivos.push({
       'id':'3',
-      'nombre': 'le ranch',
-      'ubicacion':'rnch otro'
+      'nombre': 'Cultivo 3',
+      'ubicacion':'Carretera La barca'
     });
    }
 
   ngOnInit() {
+
   }
 
   accion(event, id_cultivo){

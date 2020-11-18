@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class WebServiceService {
   urlBase = "https://whispering-eyrie-69288.herokuapp.com";
 
-  public id: number;
+  public id: any;
 
   constructor(public http: HttpClient) { }
 

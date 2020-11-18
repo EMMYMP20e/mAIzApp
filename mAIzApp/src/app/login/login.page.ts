@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
 
   public recordar: boolean;
 
-  constructor(private formBuilder: FormBuilder, private menu: MenuController, private router: Router, public servidor: WebServiceService, private loadingCtrl: LoadingController, ) {
+  constructor(private formBuilder: FormBuilder, private menu: MenuController, private router: Router, public servidor: WebServiceService, private loadingCtrl: LoadingController,) {
     this.formularioLogin = this.formBuilder.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required],
@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  async login() {
+  /*async login() {
     const loading = await this.loadingCtrl.create({
       animated: true,
       spinner: 'dots',
@@ -46,11 +46,11 @@ export class LoginPage implements OnInit {
       "usuario": this.formularioLogin.value.usuario,
       "user_password": this.formularioLogin.value.password,
     }
-    this.servidor.enviarDatos(datos, "/").pipe(
+    this.servidor.enviarDatos(datos, "/usuarios").pipe(
       finalize(() => loading.dismiss())
     ).subscribe((data) => {
       console.log(data)
-      this.servidor.setID(data['id'])
+      this.servidor.setID(data['usuarioID'])
       this.menu.enable(true, 'menu')
       this.router.navigate(['/lista-cultivos']);
     }, (err) => {
@@ -58,9 +58,13 @@ export class LoginPage implements OnInit {
       console.log(err)
     });
     
+  }*/
+  login() {
+    this.menu.enable(true, 'menu')
+    this.router.navigate(['/lista-cultivos']);
   }
 
-  goToRegistrar(){
+  goToRegistrar() {
     this.router.navigate(['/form-usuario']);
   }
 
