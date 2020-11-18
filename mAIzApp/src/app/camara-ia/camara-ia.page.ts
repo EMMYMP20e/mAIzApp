@@ -15,6 +15,7 @@ export class CamaraIaPage implements OnInit {
 
   private options: CameraOptions;
   public foto: any;
+  public foto64: any;
 
   public servidor: WebServiceService;
 
@@ -42,6 +43,7 @@ export class CamaraIaPage implements OnInit {
   tomarFoto() {
     this.camera.getPicture(this.options).then((imageData) => {
       this.foto = 'data:image/jpeg;base64,' + imageData;
+      this.foto64=imageData;
     }, (err) => {
       console.log("Error en fotografía: " + err);
     });
@@ -120,6 +122,31 @@ export class CamaraIaPage implements OnInit {
         alert("Fallo" + err);
         console.log(err)
       });
+  }
+
+  async postImagen(){
+    const loading = await this.loadingCtrl.create({
+      animated: true,
+      spinner: 'dots',
+      message: 'Accesando Servidor',
+      translucent: true,
+      cssClass: 'custom-class custom-loading',
+      backdropDismiss: false
+    });
+    await loading.present()
+
+    var datos = {
+      "Base64": this.foto64
+    }
+    this.servidor.enviarDatos(datos, "/imagen").pipe(
+      finalize(() => loading.dismiss())
+    ).subscribe((data) => {
+      alert(data);
+      console.log(data)
+    }, (err) => {
+      alert("Fallo" + err);
+      console.log(err)
+    });
   }
 
 
