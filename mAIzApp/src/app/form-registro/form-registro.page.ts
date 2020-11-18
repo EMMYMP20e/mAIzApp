@@ -43,7 +43,6 @@ export class FormRegistroPage implements OnInit {
       //id_cuenta
       //id
 
-      
     });
 
     var desface = (new Date()).getTimezoneOffset() * 60000;
