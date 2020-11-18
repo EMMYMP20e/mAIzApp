@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nuevo Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formAgregarUsuario" (ngSubmit)="agregarUsuario()">
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Usuario
+        </ion-label>
+        <ion-input formControlName="usuario" [(ngModel)]="usuario" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Password
+        </ion-label>
+        <ion-input formControlName="password" [(ngModel)]="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Nombre
+        </ion-label>
+        <ion-input formControlName="nombre" [(ngModel)]="nombre" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Teléfono
+        </ion-label>
+        <ion-input formControlName="telefono" [(ngModel)]="telefono" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="medium">
+          Dirección
+        </ion-label>
+        <ion-input formControlName="direccion" [(ngModel)]="direccion" type="text"></ion-input>
+      </ion-item>
+
+    </ion-card>
+  </form>
+
+  <div class="ion-padding">
+    <ion-button color="primary" icon-start expand="block" type="submit" [disabled]="!formAgregarUsuario.valid"
+      (click)="agregarUsuario()">
+      <ion-icon name="cloud-upload-outline"></ion-icon>
+      Crear Usuario
+    </ion-button>
+  </div>
+</ion-content>

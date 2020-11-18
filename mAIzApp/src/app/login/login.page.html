@@ -22,16 +22,21 @@
     </ion-card-content>
   </ion-card>
   <ion-card>
-    <ion-button color="primary"  icon-start expand="block" type="submit" [disabled]="!formularioLogin.valid"
+    <ion-button color="primary" icon-start expand="block" type="submit" [disabled]="!formularioLogin.valid"
       (click)="login()">
-      
-      Iniciar Sesión 0
+
+      Iniciar Sesión
       <ion-icon name="log-in-outline"></ion-icon>
     </ion-button>
+
     <ion-item>
       <ion-label color="medium">Recordar Credenciales</ion-label>
       <ion-toggle ng-checked="true" color="custom" [(ngModel)]="recordar"></ion-toggle>
     </ion-item>
+    <ion-button  outline color="custom" (click)="goToRegistrar()">
+      Registrarse
+    </ion-button>
   </ion-card>
+ 
 
 </ion-content>

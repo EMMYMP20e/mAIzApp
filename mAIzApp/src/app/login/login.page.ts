@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import {MenuController} from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
       usuario: ['', Validators.required],
       password: ['', Validators.required],
     });
-    this.recordar=false;
+    this.recordar = false;
     this.menu.enable(false, 'menu');
 
   }
@@ -30,7 +30,11 @@ export class LoginPage implements OnInit {
   login() {
     this.menu.enable(true, 'menu')
     this.router.navigate(['/lista-cultivos']);
-    
-   }
+
+  }
+
+  goToRegistrar(){
+    this.router.navigate(['/form-usuario']);
+  }
 
 }
