@@ -28,6 +28,13 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    
+  }
+  ionViewWillEnter(){
+    this.menu.enable(false, 'menu');
+    this.formularioLogin.value.usuario="";
+    this.formularioLogin.value.password="";
+    this.recordar = false;
   }
 
   /*async login() {

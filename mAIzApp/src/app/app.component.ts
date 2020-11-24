@@ -31,7 +31,13 @@ export class AppComponent implements OnInit {
       title: 'Perfil',
       url: '/perfil',
       icon: 'person-circle'
+    },
+    {
+      title: 'Cerrar sesión',
+      url: '/login',
+      icon: 'log-out'
     }
+
   ];
 
   constructor(
