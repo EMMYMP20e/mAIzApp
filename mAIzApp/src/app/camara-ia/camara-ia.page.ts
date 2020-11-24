@@ -149,5 +149,56 @@ export class CamaraIaPage implements OnInit {
     });
   }
 
+  async getRegistros(){
+    const loading = await this.loadingCtrl.create({
+      animated: true,
+      spinner: 'dots',
+      message: 'Accesando Servidor',
+      translucent: true,
+      cssClass: 'custom-class custom-loading',
+      backdropDismiss: false
+    });
+    await loading.present()
+
+    var datos = {
+      "IDUser":1,
+      "IDPlantio":1
+    }
+    this.servidor.enviarDatos(datos, "/obtenerRegistros").pipe(
+      finalize(() => loading.dismiss())
+    ).subscribe((data) => {
+      alert(data);
+      console.log(data)
+    }, (err) => {
+      alert("Fallo" + err);
+      console.log(err)
+    });
+  }
+
+  async getPlantios(){
+    const loading = await this.loadingCtrl.create({
+      animated: true,
+      spinner: 'dots',
+      message: 'Accesando Servidor',
+      translucent: true,
+      cssClass: 'custom-class custom-loading',
+      backdropDismiss: false
+    });
+    await loading.present()
+
+    var datos = {
+      "IDUsuario":1
+    }
+    this.servidor.enviarDatos(datos, "/obtenerPlantios").pipe(
+      finalize(() => loading.dismiss())
+    ).subscribe((data) => {
+      alert(data);
+      console.log(data)
+    }, (err) => {
+      alert("Fallo" + err);
+      console.log(err)
+    });
+  }
+
 
 }
