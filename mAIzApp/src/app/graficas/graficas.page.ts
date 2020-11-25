@@ -142,12 +142,12 @@ export class GraficasPage implements OnInit {
     ).subscribe((data) => {
       for (let registro in data) {
         this.arrayGDD.push({
-          date: data[registro].FechaRegistro,
-          data: data[registro].GradosDiasCrecimiento
+          date: data[registro].fecharegistro,
+          data: data[registro].gradosdiascrecimiento
         });
         this.arrayV.push({
-          date: data[registro].FechaRegistro,
-          data: data[registro].EtapaVegetativa
+          date: data[registro].fecharegistro,
+          data: data[registro].etapavegetativa
         });
       }
       console.log(data)

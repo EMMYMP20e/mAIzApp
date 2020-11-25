@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { WebServiceService } from './../services/web-service.service';
 import { LoadingController } from '@ionic/angular';
 import { finalize } from 'rxjs/operators';
+import { delay } from 'q';
 
 @Component({
   selector: 'app-list-registros',
@@ -13,7 +14,7 @@ export class ListRegistrosPage implements OnInit {
 
   public id_plantio: any;
 
-  public arrayRegistros = [];
+  arrayRegistros= [];
 
 
   constructor(private router: Router, public servidor: WebServiceService, private loadingCtrl: LoadingController) {
@@ -28,7 +29,11 @@ export class ListRegistrosPage implements OnInit {
     }
    }
 
-  async ngOnInit() {
+   ngOnInit(){}
+   
+
+  async ionViewWillEnter() {
+    this.arrayRegistros = [];
     const loading = await this.loadingCtrl.create({
       animated: true,
       spinner: 'dots',
@@ -47,6 +52,7 @@ export class ListRegistrosPage implements OnInit {
       finalize(() => loading.dismiss())
     ).subscribe((data) => {
       for (let registro in data) {
+        data[registro].fecha=data[registro].fecharegistro.slice(0,10);
         this.arrayRegistros.push(data[registro]);
       }
       console.log(data)

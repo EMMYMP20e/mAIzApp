@@ -85,9 +85,10 @@ export class ListaCultivosPage implements OnInit {
           console.log(reg);
 
           for (let registro in reg) {
-            gdd_a += reg[registro].GradosDiasCrecimiento;
+            gdd_a += reg[registro].gradosdiascrecimiento;
             dias = registro;
-            etapa = reg[registro].EtapaVegetativa;
+            console.log(registro)
+            etapa = reg[registro].etapavegetativa;
           }
         }, (err) => {
           alert("Fallo" + err);
