@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'form-usuario',
     loadChildren: () => import('./form-usuario/form-usuario.module').then( m => m.FormUsuarioPageModule)
+  },
+  {
+    path: 'list-registros',
+    loadChildren: () => import('./list-registros/list-registros.module').then( m => m.ListRegistrosPageModule)
   }
 ];
 

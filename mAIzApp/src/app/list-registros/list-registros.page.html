@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="custom"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Registros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor='let registro of arrayRegistros' >
+    <ion-card-header>
+      <ion-card-subtitle>ID:{{registro.RegistroID}}</ion-card-subtitle>
+      <ion-card-title>Fecha: {{registro.FechaRegistro}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div>
+        <ion-label color="custom">Grados Dia de Crecimiento:</ion-label> {{registro.GradosDiasCrecimiento}}
+      </div>
+      <div>
+        <ion-label color="custom">Temp. Max:</ion-label> {{registro.TempMax}}
+      </div>
+      <div>
+        <ion-label color="custom">Temp. Max:</ion-label> {{registro.TempMin}}
+      </div>
+    </ion-card-content>
+    <ion-footer>
+      <ion-row>
+        <ion-col center text-center>
+          <div class="ion-text-center">
+            <div>Usuario ID: {{registro.UsuarioID}}</div>
+          </div>
+        </ion-col>
+        <ion-col center text-center>
+          <div class="ion-text-center">
+            <ion-icon color="primary" name="calendar-clear-outline"></ion-icon>
+            <div>{{registro.FechaRegistro}}</div>
+          </div>
+        </ion-col>
+        <ion-col center text-center>
+          <div class="ion-text-center">
+            <ion-icon color="success" name="leaf"></ion-icon>Etapa
+            <div>V{{registro.EtapaVegetativa}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-card>
+</ion-content>
