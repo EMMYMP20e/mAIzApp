@@ -39,8 +39,8 @@ export class ListaCultivosPage implements OnInit {
     var funcP = await this.getPlantios(datos, loading);
     console.log("1");
 
-    var funcR = await this.getRegistros(funcP);
-    console.log(funcR);
+    /*var funcR = await this.getRegistros(funcP);
+    console.log(funcR);*/
 
   }
 
@@ -113,7 +113,12 @@ export class ListaCultivosPage implements OnInit {
       this.router.navigate(['/form-registro'], datos);
     }
     else if (event.target.value.includes("Gráficas")) {
-      this.router.navigate(['/graficas']);
+      let datos: NavigationExtras = {
+        state: {
+          id: id_cultivo
+        }
+      };
+      this.router.navigate(['/graficas'], datos);
     }
     else if(event.target.value.includes("Historial")){
       let datos: NavigationExtras = {

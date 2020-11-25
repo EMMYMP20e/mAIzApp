@@ -13,26 +13,19 @@
       <ion-avatar slot="start">
         <img src="../assets/profile.png">
       </ion-avatar>
-      <h2>Marty McFly</h2>
+      <h2>{{usuario.user_nombre}}</h2>
     </ion-item>
     <ion-card-content>
       <div>
-        <ion-label color="custom">Usuario: </ion-label> NewUser
+        <ion-label color="custom">Usuario: </ion-label> {{usuario.usuario}}
       </div>
       <div>
-        <ion-label color="custom">Dirección:</ion-label> Revolucion #1500
+        <ion-label color="custom">Dirección:</ion-label> {{usuario.user_direccion}}
       </div>
       <div>
-        <ion-label color="custom">Teléfono:</ion-label> 3330002222
+        <ion-label color="custom">Teléfono:</ion-label> {{usuario.user_telefono}}
       </div>
-      <div>
-        <ion-label color="custom">Número de Plantíos:</ion-label> 1
-      </div>
-      <ion-item lines="none">
-        <ion-button size="small" slot="end">
-          Editar<ion-icon name="create-outline"></ion-icon>
-        </ion-button>
-      </ion-item>
+      
     </ion-card-content>
 
   </ion-card>

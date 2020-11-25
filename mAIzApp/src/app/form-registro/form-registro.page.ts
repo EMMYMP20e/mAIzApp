@@ -84,9 +84,11 @@ export class FormRegistroPage implements OnInit {
       "Longitud": this.lon_ubicacion,
       "TempMax": this.tempMax,
       "TempMin": this.tempMin,
-      "GradosDiaCrecimiento": this.gdd,
-      "EtapaVegetativa":this.etapa_vegetativa
+      "GradosDiasCrecimiento": this.gdd,
+      "EtapaVegetativa":this.etapa_vegetativa,
+      "FechaRegistro":String(this.dia)
     }
+    console.log(datos);
     this.servidor.enviarDatos(datos, "/registros").pipe(
       finalize(() => loading.dismiss())
     ).subscribe((data) => {
