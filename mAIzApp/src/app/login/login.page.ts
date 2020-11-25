@@ -37,7 +37,7 @@ export class LoginPage implements OnInit {
     this.recordar = false;
   }
 
-  /*async login() {
+  async login() {
     const loading = await this.loadingCtrl.create({
       animated: true,
       spinner: 'dots',
@@ -49,15 +49,15 @@ export class LoginPage implements OnInit {
     await loading.present()
 
     var datos = {
-      "get": "login",
-      "usuario": this.formularioLogin.value.usuario,
-      "user_password": this.formularioLogin.value.password,
+      "UsuarioUsername": this.formularioLogin.value.usuario,
+      "UsuarioPassword": this.formularioLogin.value.password,
     }
-    this.servidor.enviarDatos(datos, "/usuarios").pipe(
+    this.servidor.enviarDatos(datos, "/login").pipe(
       finalize(() => loading.dismiss())
     ).subscribe((data) => {
+      console.log("id")
       console.log(data)
-      this.servidor.setID(data['usuarioID'])
+      this.servidor.setID(data)
       this.menu.enable(true, 'menu')
       this.router.navigate(['/lista-cultivos']);
     }, (err) => {
@@ -65,12 +65,12 @@ export class LoginPage implements OnInit {
       console.log(err)
     });
     
-  }*/
-  login() {
+  }
+  /*login() {
     this.servidor.setID(0);
     this.menu.enable(true, 'menu')
     this.router.navigate(['/lista-cultivos']);
-  }
+  }*/
 
   goToRegistrar() {
     this.router.navigate(['/form-usuario']);

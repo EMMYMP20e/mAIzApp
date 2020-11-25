@@ -40,6 +40,7 @@ export class CamaraIaPage implements OnInit {
 
   ngOnInit() {
   }
+  
   tomarFoto() {
     this.camera.getPicture(this.options).then((imageData) => {
       this.foto = 'data:image/jpeg;base64,' + imageData;
@@ -49,80 +50,6 @@ export class CamaraIaPage implements OnInit {
     });
   }
 
-  async getRequest() {
-    const loading = await this.loadingCtrl.create({
-      animated: true,
-      spinner: 'dots',
-      message: 'Accesando Servidor',
-      translucent: true,
-      cssClass: 'custom-class custom-loading',
-      backdropDismiss: false
-    });
-    await loading.present()
-    
-    this.servidor.dameDatos("/CORS").pipe(
-      finalize(() => loading.dismiss())
-    ).subscribe((data) => {
-      alert(data);
-      console.log(data)
-    }, (err) => {
-      alert("Fallo" + err);
-      console.log(err)
-    });
-  }
-  async postRequest() {
-    const loading = await this.loadingCtrl.create({
-      animated: true,
-      spinner: 'dots',
-      message: 'Accesando Servidor',
-      translucent: true,
-      cssClass: 'custom-class custom-loading',
-      backdropDismiss: false
-    });
-    await loading.present()
-
-    var datos = {
-      "IDAlumno": 69,
-      "NombreAlumno": "Mia khalifa",
-    }
-    this.servidor.enviarDatos(datos, "/CORS").pipe(
-      finalize(() => loading.dismiss())
-    ).subscribe((data) => {
-      alert(data);
-      console.log(data)
-    }, (err) => {
-      alert("Fallo" + err);
-      console.log(err)
-    });
-  }
-
-  async getApi() {
-    const loading = await this.loadingCtrl.create({
-      animated: true,
-      spinner: 'dots',
-      message: 'Accesando API de OpenWeather',
-      translucent: true,
-      cssClass: 'custom-class custom-loading',
-      backdropDismiss: false
-    });
-    await loading.present()
-
-    var datos = {
-      lat: 19.994076,
-      lon: -102.294526,
-      exclude: 'minutely,hourly,alerts'
-    }
-    this.api.dameDatos(datos).pipe(
-      finalize(() => loading.dismiss())
-    )
-      .subscribe((data) => {
-        alert(data);
-        console.log(data)
-      }, (err) => {
-        alert("Fallo" + err);
-        console.log(err)
-      });
-  }
 
   async postImagen(){
     const loading = await this.loadingCtrl.create({
@@ -149,56 +76,9 @@ export class CamaraIaPage implements OnInit {
     });
   }
 
-  async getRegistros(){
-    const loading = await this.loadingCtrl.create({
-      animated: true,
-      spinner: 'dots',
-      message: 'Accesando Servidor',
-      translucent: true,
-      cssClass: 'custom-class custom-loading',
-      backdropDismiss: false
-    });
-    await loading.present()
+ 
 
-    var datos = {
-      "IDUser":1,
-      "IDPlantio":1
-    }
-    this.servidor.enviarDatos(datos, "/obtenerRegistros").pipe(
-      finalize(() => loading.dismiss())
-    ).subscribe((data) => {
-      alert(data);
-      console.log(data)
-    }, (err) => {
-      alert("Fallo" + err);
-      console.log(err)
-    });
-  }
-
-  async getPlantios(){
-    const loading = await this.loadingCtrl.create({
-      animated: true,
-      spinner: 'dots',
-      message: 'Accesando Servidor',
-      translucent: true,
-      cssClass: 'custom-class custom-loading',
-      backdropDismiss: false
-    });
-    await loading.present()
-
-    var datos = {
-      "IDUsuario":1
-    }
-    this.servidor.enviarDatos(datos, "/obtenerPlantios").pipe(
-      finalize(() => loading.dismiss())
-    ).subscribe((data) => {
-      alert(data);
-      console.log(data)
-    }, (err) => {
-      alert("Fallo" + err);
-      console.log(err)
-    });
-  }
+ 
 
 
 }

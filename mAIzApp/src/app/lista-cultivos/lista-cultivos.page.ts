@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { WebServiceService } from './../services/web-service.service';
 import { LoadingController } from '@ionic/angular';
-import { delay, finalize } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
+import { delay } from 'q';
 
 @Component({
   selector: 'app-lista-cultivos',
@@ -39,8 +40,10 @@ export class ListaCultivosPage implements OnInit {
     var funcP = await this.getPlantios(datos, loading);
     console.log("1");
 
-    /*var funcR = await this.getRegistros(funcP);
-    console.log(funcR);*/
+    await delay(3000)
+
+    var funcR = await this.getRegistros(funcP);
+    console.log(funcR);
 
   }
 
@@ -97,7 +100,11 @@ export class ListaCultivosPage implements OnInit {
         console.log("gg")
         console.log(arreglo);
 
+
       }
+      console.log(this.arrayCultivos)
+      this.arrayCultivos = arreglo
+      console.log(this.arrayCultivos)
       resolve("2");
     });
   }
@@ -120,7 +127,7 @@ export class ListaCultivosPage implements OnInit {
       };
       this.router.navigate(['/graficas'], datos);
     }
-    else if(event.target.value.includes("Historial")){
+    else if (event.target.value.includes("Historial")) {
       let datos: NavigationExtras = {
         state: {
           id: id_cultivo
