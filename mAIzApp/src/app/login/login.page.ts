@@ -67,6 +67,7 @@ export class LoginPage implements OnInit {
     
   }*/
   login() {
+    this.servidor.setID(0);
     this.menu.enable(true, 'menu')
     this.router.navigate(['/lista-cultivos']);
   }

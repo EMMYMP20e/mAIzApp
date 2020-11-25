@@ -90,9 +90,8 @@ export class FormRegistroPage implements OnInit {
     this.servidor.enviarDatos(datos, "/registros").pipe(
       finalize(() => loading.dismiss())
     ).subscribe((data) => {
-      alert("Usuario Registrado");
+      alert("Registro Creado");
       console.log(data)
-      this.servidor.setID(data['ID'])
       this.router.navigate(['/lista-cultivos']);
     }, (err) => {
       alert("Error al conectarse al servidor");
