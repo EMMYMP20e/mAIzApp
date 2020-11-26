@@ -84,7 +84,7 @@ export class FormRegistroPage implements OnInit {
       "Longitud": this.lon_ubicacion,
       "TempMax": this.tempMax,
       "TempMin": this.tempMin,
-      "GradosDiasCrecimiento": this.gdd,
+      "GradosDiaCrecimiento": this.gdd,
       "EtapaVegetativa":this.etapa_vegetativa,
       "FechaRegistro":String(this.dia)
     }

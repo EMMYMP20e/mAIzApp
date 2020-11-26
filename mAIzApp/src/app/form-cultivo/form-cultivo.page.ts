@@ -53,7 +53,7 @@ export class FormCultivoPage implements OnInit {
       "UsuarioID": this.servidor.getID() ,
       "NombrePlantio": this.nombre,
       "UbicacionPlantio": this.ubicacion,
-      "FechaCreacion": String(this.fecha_inicio)
+      "FechaPlantio": String(this.fecha_inicio)
     }
     this.servidor.enviarDatos(datos, "/plantios").pipe(
       finalize(() => loading.dismiss())

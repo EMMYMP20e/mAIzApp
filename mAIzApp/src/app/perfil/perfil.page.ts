@@ -45,10 +45,10 @@ export class PerfilPage implements OnInit {
       console.log(data['0']);
       console.log(data['0'].user_nombre);
       this.usuario = {
-        "user_nombre":data['0'].user_nombre,
-        "usuario":data['0'].usuario,
-        "user_direccion":data['0'].user_direccion,
-        "user_telefono":data['0'].user_telefono
+        "usuarionombre":data['0'].usuarionombre,
+        "usuariousername":data['0'].usuariousername,
+        "usuariodireccion":data['0'].usuariodireccion,
+        "usuariotelefono":data['0'].usuariotelefono
       };
     }, (err) => {
       alert("Fallo" + err);

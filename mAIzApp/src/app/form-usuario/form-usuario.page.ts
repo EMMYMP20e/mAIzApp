@@ -50,11 +50,11 @@ export class FormUsuarioPage implements OnInit {
     await loading.present()
     this.telefonoStr=String(this.telefono)
     var datos = {
-      "UsuarioNombre": this.nombre,
-      "UsuarioUsername": this.usuario,
-      "UsuarioPassword": this.password,
-      "UsuarioTelefono": this.telefonoStr,
-      "UsuarioDireccion": this.direccion
+      "usuarionombre": this.nombre,
+      "usuariousername": this.usuario,
+      "usuariopassword": this.password,
+      "usuariotelefono": this.telefonoStr,
+      "usuariodireccion": this.direccion
     }
     this.servidor.enviarDatos(datos, "/usuarios").pipe(
       finalize(() => loading.dismiss())

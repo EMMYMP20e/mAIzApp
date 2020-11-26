@@ -53,6 +53,7 @@ export class ListaCultivosPage implements OnInit {
         finalize(() => loading.dismiss())
       ).subscribe((data) => {
         for (let plantio in data) {
+          data[plantio].fecha=data[plantio].fechaplantio.slice(0,10);
           this.arrayCultivos.push(data[plantio]);
         }
         console.log("xd");

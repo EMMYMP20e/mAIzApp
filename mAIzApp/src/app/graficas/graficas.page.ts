@@ -157,7 +157,7 @@ export class GraficasPage implements OnInit {
       for (let registro in data) {
         this.arrayGDD.push({
           date: data[registro].fecharegistro.slice(0,10),
-          data: data[registro].gradosdiascrecimiento
+          data: data[registro].gradosdiacrecimiento
         });
         this.arrayV.push({
           date: data[registro].fecharegistro.slice(0,10),
