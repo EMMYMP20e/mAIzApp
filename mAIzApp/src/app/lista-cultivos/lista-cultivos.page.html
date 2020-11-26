@@ -13,15 +13,6 @@
       <ion-card-subtitle>ID:{{cultivo.plantioid}}</ion-card-subtitle>
       <ion-card-title>Nombre: {{cultivo.nombreplantio}}</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      <div>
-        <ion-label color="custom">Días Transcurridos:</ion-label> {{cultivo.dias}}
-      </div>
-      <div>
-        <ion-label color="custom">GDD Acumulados:</ion-label> {{cultivo.gdd_a}}
-      </div>
-    </ion-card-content>
-
     <ion-footer>
       <ion-row>
         <ion-col center text-center>
@@ -34,12 +25,6 @@
           <div class="ion-text-center">
             <ion-icon color="primary" name="calendar-clear-outline"></ion-icon>
             <div>{{cultivo.fechaplantio}}</div>
-          </div>
-        </ion-col>
-        <ion-col center text-center>
-          <div class="ion-text-center">
-            <ion-icon color="success" name="leaf"></ion-icon>Etapa
-            <div>{{cultivo.etapa}}</div>
           </div>
         </ion-col>
       </ion-row>

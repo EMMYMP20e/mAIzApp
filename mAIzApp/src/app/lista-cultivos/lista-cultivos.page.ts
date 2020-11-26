@@ -40,10 +40,10 @@ export class ListaCultivosPage implements OnInit {
     var funcP = await this.getPlantios(datos, loading);
     console.log("1");
 
-    await delay(3000)
+    //await delay(3000)
 
-    var funcR = await this.getRegistros(funcP);
-    console.log(funcR);
+    /*var funcR = await this.getRegistros(funcP);
+    console.log(funcR);*/
 
   }
 

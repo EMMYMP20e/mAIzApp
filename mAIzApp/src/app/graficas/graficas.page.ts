@@ -1,3 +1,4 @@
+import { delay } from 'q';
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
@@ -21,6 +22,9 @@ export class GraficasPage implements OnInit {
   // Data
   chartData: ChartDataSets[] = [{ data: [], label: ' ' }];
   chartLabels: Label[];
+
+  chartDataV: ChartDataSets[] = [{ data: [], label: ' ' }];
+  chartLabelsV: Label[];
 
   // Options
   chartOptions = {
@@ -81,7 +85,7 @@ export class GraficasPage implements OnInit {
     else {
       console.log("id null")
     }
-    this.getData()
+    
   }
 
 
@@ -120,6 +124,16 @@ export class GraficasPage implements OnInit {
     }
     console.log(this.chartLabels)
     console.log(this.chartData[0].data)
+
+    this.chartLabelsV = [];
+    this.chartDataV[0].data = [];
+
+    for (let entry of this.arrayV) {
+      this.chartLabelsV.push(entry.date);
+      this.chartDataV[0].data.push(entry['data']);
+    }
+    console.log(this.chartLabelsV)
+    console.log(this.chartDataV[0].data)
   }
 
   async ngOnInit() {
@@ -142,19 +156,22 @@ export class GraficasPage implements OnInit {
     ).subscribe((data) => {
       for (let registro in data) {
         this.arrayGDD.push({
-          date: data[registro].fecharegistro,
+          date: data[registro].fecharegistro.slice(0,10),
           data: data[registro].gradosdiascrecimiento
         });
         this.arrayV.push({
-          date: data[registro].fecharegistro,
+          date: data[registro].fecharegistro.slice(0,10),
           data: data[registro].etapavegetativa
         });
       }
-      console.log(data)
+      console.log("grafica");
+      console.log(data);
     }, (err) => {
       alert("Fallo" + err);
       console.log(err)
     });
+    await delay(2000);
+    this.getData()
   }
 
 }
