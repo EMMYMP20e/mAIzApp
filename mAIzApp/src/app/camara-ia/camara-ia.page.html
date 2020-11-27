@@ -15,15 +15,25 @@
   <div class="ion-padding">
     <ion-button color="primary" icon-start expand="block" type="submit" (click)="tomarFoto()">
       <ion-icon name="aperture"></ion-icon>
-      mAIz
+      Camara
+    </ion-button>
+  </div>
+
+  <div class="ion-padding">
+    <ion-button color="primary" icon-start expand="block" type="submit" (click)="foto_64()">
+      <ion-icon name="aperture"></ion-icon>
+      Galería
     </ion-button>
   </div>
   <div class="ion-padding">
     <ion-button color="primary" icon-start expand="block" type="submit" (click)="postImagen()">
       <ion-icon name="aperture"></ion-icon>
-      Post Imagen
+      mAIz
     </ion-button>
   </div>
-  <ion-img class="your-img" src="../assets/foto.jpg"></ion-img>
+  <ion-img class="your-img" [src]="pic"></ion-img>
+  <ion-label position="floating" color="medium">
+    Etapa:{{etapa}}
+  </ion-label>
   
 </ion-content>
