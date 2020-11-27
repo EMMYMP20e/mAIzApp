@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="custom"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Registros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor='let registro of arrayRegistros' >
+    <ion-card-header>
+      <ion-card-subtitle>ID:{{registro.registroid}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <div>
+        <ion-label color="custom">Grados Dia de Crecimiento:</ion-label> {{registro.gradosdiacrecimiento}}
+      </div>
+      <div>
+        <ion-label color="custom">Temp. Max:</ion-label> {{registro.tempmax}}
+      </div>
+      <div>
+        <ion-label color="custom">Temp. Max:</ion-label> {{registro.tempmin}}
+      </div>
+    </ion-card-content>
+    <ion-footer>
+      <ion-row>
+        <ion-col center text-center>
+          <div class="ion-text-center">
+            <div>Usuario ID: {{registro.usuarioid}}</div>
+          </div>
+        </ion-col>
+        <ion-col center text-center>
+          <div class="ion-text-center">
+            <ion-icon color="primary" name="calendar-clear-outline"></ion-icon>
+            <div>{{registro.fecha}}</div>
+          </div>
+        </ion-col>
+        <ion-col center text-center>
+          <div class="ion-text-center">
+            <ion-icon color="success" name="leaf"></ion-icon>Etapa
+            <div>V{{registro.etapavegetativa}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-card>
+</ion-content>

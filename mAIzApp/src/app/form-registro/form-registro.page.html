@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="formRegistro" (ngSubmit)="guardarRegistro()">
+  <form [formGroup]="formRegistro" >
 
     <ion-card>
       <ion-item>
@@ -69,7 +69,7 @@
       </ion-item>
 
       <div class="ion-padding">
-        <ion-button color="custom" icon-start expand="block" type="submit" (click)="guardarRegistro()">
+        <ion-button color="custom" icon-start expand="block" type="submit" >
           <ion-icon name="aperture"></ion-icon>
           Camara-IA
         </ion-button>

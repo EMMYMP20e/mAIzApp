@@ -7,7 +7,16 @@ import { HttpClient } from '@angular/common/http';
 export class WebServiceService {
   urlBase = "https://whispering-eyrie-69288.herokuapp.com";
 
+  public id: any;
+
   constructor(public http: HttpClient) { }
+
+  getID(){
+    return this.id;
+  }
+  setID(id){
+    this.id=id;
+  }
 
   enviarDatos(datos, directorioUrl) {
     let options = {
@@ -21,6 +30,5 @@ export class WebServiceService {
   dameDatos(directorioUrl) {
     return this.http.get(this.urlBase + directorioUrl);
   }
-
 
 }

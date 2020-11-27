@@ -9,34 +9,31 @@
 
 <ion-content>
   <ion-label color="medium">
-    Inserte instrucciones vergas con dibujito Xd
+    Testing
   </ion-label>
 
   <div class="ion-padding">
     <ion-button color="primary" icon-start expand="block" type="submit" (click)="tomarFoto()">
       <ion-icon name="aperture"></ion-icon>
+      Camara
+    </ion-button>
+  </div>
+
+  <div class="ion-padding">
+    <ion-button color="primary" icon-start expand="block" type="submit" (click)="foto_64()">
+      <ion-icon name="aperture"></ion-icon>
+      Galería
+    </ion-button>
+  </div>
+  <div class="ion-padding">
+    <ion-button color="primary" icon-start expand="block" type="submit" (click)="postImagen()">
+      <ion-icon name="aperture"></ion-icon>
       mAIz
     </ion-button>
   </div>
-  <div class="ion-padding">
-    <ion-button color="primary" icon-start expand="block" type="submit" (click)="getRequest()">
-      <ion-icon name="aperture"></ion-icon>
-      Get
-    </ion-button>
-  </div>
-  <div class="ion-padding">
-    <ion-button color="primary" icon-start expand="block" type="submit" (click)="postRequest()">
-      <ion-icon name="aperture"></ion-icon>
-      Post
-    </ion-button>
-  </div>
-  <div class="ion-padding">
-    <ion-button color="primary" icon-start expand="block" type="submit" (click)="getApi()">
-      <ion-icon name="aperture"></ion-icon>
-      Get API
-    </ion-button>
-  </div>
-  <ion-thumbnail>
-    <ion-img [src]="foto"></ion-img>
-  </ion-thumbnail>
+  <ion-img class="your-img" [src]="pic"></ion-img>
+  <ion-label position="floating" color="medium">
+    Etapa:{{etapa}}
+  </ion-label>
+  
 </ion-content>

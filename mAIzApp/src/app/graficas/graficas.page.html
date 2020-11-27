@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>graficas</ion-title>
+    <ion-title>Gráficas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,6 +10,15 @@
   [labels]="chartLabels" 
   [options]="chartOptions" 
   [colors]="chartColors"
+  [legend]="showLegend" 
+  [chartType]="chartType">
+  </canvas>
+
+  <canvas baseChart 
+  [datasets]="chartDataV" 
+  [labels]="chartLabelsV" 
+  [options]="chartOptionsV" 
+  [colors]="chartColorG"
   [legend]="showLegend" 
   [chartType]="chartType">
   </canvas>

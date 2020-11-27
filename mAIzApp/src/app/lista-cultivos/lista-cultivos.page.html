@@ -10,45 +10,27 @@
 <ion-content>
   <ion-card *ngFor='let cultivo of arrayCultivos' >
     <ion-card-header>
-      <ion-card-subtitle>ID:id</ion-card-subtitle>
-      <ion-card-title>Nombre: {{cultivo.nombre}}</ion-card-title>
+      <ion-card-subtitle>ID:{{cultivo.plantioid}}</ion-card-subtitle>
+      <ion-card-title>Nombre: {{cultivo.nombreplantio}}</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      <div>
-        <ion-label color="custom">Días Transcurridos:</ion-label> 2
-      </div>
-      <div>
-        <ion-label color="custom">GDD Acumulados:</ion-label> 120
-      </div>
-      <div>
-        <ion-label>Mensaje dinamico:</ion-label>
-      </div>
-    </ion-card-content>
-
     <ion-footer>
       <ion-row>
         <ion-col center text-center>
           <div class="ion-text-center">
             <ion-icon color="primary" name="location-outline"></ion-icon>
-            <div>{{cultivo.ubicacion}}</div>
+            <div>{{cultivo.ubicacionplantio}}</div>
           </div>
         </ion-col>
         <ion-col center text-center>
           <div class="ion-text-center">
             <ion-icon color="primary" name="calendar-clear-outline"></ion-icon>
-            <div>30/Feb/2020</div>
-          </div>
-        </ion-col>
-        <ion-col center text-center>
-          <div class="ion-text-center">
-            <ion-icon color="success" name="leaf"></ion-icon>Etapa
-            <div>V3</div>
+            <div>{{cultivo.fecha}}</div>
           </div>
         </ion-col>
       </ion-row>
     </ion-footer>
 
-    <ion-select (ionChange)="accion( $event, cultivo.id)" cancel-text="Cancelar" interface="action-sheet">
+    <ion-select (ionChange)="accion( $event, cultivo.plantioid)" cancel-text="Cancelar" interface="action-sheet">
       <ion-select-option>Nuevo Registro</ion-select-option>
       <ion-select-option>Gráficas</ion-select-option>
       <ion-select-option>Historial</ion-select-option>
